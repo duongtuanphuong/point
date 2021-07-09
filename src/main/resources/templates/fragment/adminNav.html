@@ -1,0 +1,26 @@
+<th:block th:fragment="adminNav">
+    <div class="main-nav">
+        <ul class="navigation">
+            <li><a th:href="@{/admin}">
+                <i class="fas fa-home"></i>
+                <span>Trang chủ</span></a>
+            </li>
+
+            <li><a th:href="@{/admin/classList}">
+                <i class="fab fa-stack-overflow"></i>
+                <span>Danh sách các Lớp</span>
+            </a>
+            </li>
+            <li><a th:href="@{/admin/evaluationSession}">
+                <i class="fab fa-stack-overflow"></i>
+                <span>Các đợt đánh giá điểm rèn luyện</span>
+            </a>
+            </li>
+            <li><a th:href="@{/admin/studentInfo}">
+                <i class="fab fa-stack-overflow"></i>
+                <span>Cập nhật hồ sơ sinh viên</span>
+            </a>
+            </li>
+        </ul>
+    </div>
+</th:block>

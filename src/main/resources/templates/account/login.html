@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/layout :: main-fragment(
+                                                ~{:: title},
+                                                'full-header',
+                                                'nav',
+                                                'footer',
+                                                ~{:: #css-resources},
+                                                ~{:: #js-resources},
+                                                ~{:: #main-content}
+                                               )}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UET Training Point - Đăng nhập</title>
+    <th:block id="css-resources">
+        <link rel="stylesheet" th:href="@{/css/common/main.css}">
+        <link rel="stylesheet" th:href="@{/css/common/footer.css}">
+        <link rel="stylesheet" th:href="@{/css/account/account.css}">
+    </th:block>
+    <th:block id="js-resources"></th:block>
+</head>
+<body>
+<main id="main-content">
+    <div class="login-form">
+        <div class="login-title">
+            <span>Đăng nhập hệ thống</span>
+        </div>
+        <div th:if="${param.error}">
+            <p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>
+        </div>
+        <div th:if="${param.logout}">
+            <p class="text-warning">Đăng xuất thành công</p>
+        </div>
+        <form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto ">
+            <div class="p-3 rounded">
+                <p>Nhập tài khoản và mật khẩu của bạn</p>
+                <p>
+                    <input type="username" name="username" class="form-control" placeholder="Tài khoản" required
+                           autofocus>
+                </p>
+                <p>
+                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required/>
+                </p>
+                <p>
+                    <input type="checkbox" name="remember-me"> Nhớ tài khoản
+                </p>
+                <p>
+                    <input type="submit" value="Đăng nhập" class="btn btn-primary">
+                </p>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>
